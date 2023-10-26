@@ -12,7 +12,7 @@ function Doubler({ setDhValue, dhValue }: valueProperties): JSX.Element {
 }
 
 function Halver({ setDhValue, dhValue }: valueProperties): JSX.Element {
-    return <Button onClick={() => setDhValue(0.5 * dhValue)}>Halve</Button>;
+    return <Button onClick={() => setDhValue(0.5 * dhValue)}>Half</Button>;
 }
 
 export function DoubleHalf(): JSX.Element {
