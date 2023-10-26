@@ -73,6 +73,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
             ? removeQuestion.toUpperCase()
             : removeQuestion
     );
+    return exclamation;
 };
 
 /**
@@ -115,7 +116,16 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0) {
+        return "0=0";
+    } else {
+        const sum = addends.reduce(
+            (currentSum: number, num: number) => currentSum + num,
+            0
+        );
+        const str = addends.join("+");
+        return sum + "=" + str;
+    }
 }
 
 /**
