@@ -14,8 +14,11 @@ export function fahrenheitToCelius(temperature: number): number {
  */
 export function add3(first: number, second: number, third: number): number {
     let sum = 0;
+    // eslint-disable-next-line no-extra-parens
     first > 0 ? (sum += first) : (sum = sum);
+    // eslint-disable-next-line no-extra-parens
     second > 0 ? (sum += second) : (sum = sum);
+    // eslint-disable-next-line no-extra-parens
     third > 0 ? (sum += third) : (sum = sum);
     return sum;
 }
