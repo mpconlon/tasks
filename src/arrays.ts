@@ -5,7 +5,17 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    let arr: number[];
+    if (numbers.length === 0) {
+        arr = [];
+    } else if (numbers.length === 1) {
+        arr = [numbers[0]];
+        arr.splice(2, 0, numbers[0]);
+    } else {
+        arr = [numbers[0]];
+        arr.splice(2, 0, numbers[numbers.length - 1]);
+    }
+    return arr;
 }
 
 /**
@@ -13,7 +23,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const trip = numbers.map((numbers: number): number => numbers * 3);
+    return trip;
 }
 
 /**
@@ -21,7 +32,13 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const int_list = numbers.map((numbers: string): number =>
+        parseInt(numbers)
+    );
+    const int_return = int_list.map((int_list: number): number =>
+        Number.isNaN(int_list) ? (int_list = 0) : int_list
+    );
+    return int_return;
 }
 
 /**
@@ -32,7 +49,14 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const noDoll = amounts.map((amounts: string): string =>
+        amounts.charAt(0) === "$" ? (amounts = amounts.slice(1)) : amounts
+    );
+    const ints = noDoll.map((amounts: string): number => parseInt(amounts));
+    const intsRet = ints.map((ints: number): number =>
+        Number.isNaN(ints) ? (ints = 0) : ints
+    );
+    return intsRet;
 };
 
 /**
@@ -41,7 +65,14 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const removeQuestion = messages.filter(
+        (messages: string): boolean => messages[messages.length - 1] != "?"
+    );
+    const exclamation = removeQuestion.map((removeQuestion: string): string =>
+        removeQuestion[removeQuestion.length - 1] === "!"
+            ? removeQuestion.toUpperCase()
+            : removeQuestion
+    );
 };
 
 /**
@@ -49,7 +80,8 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const short = words.filter((words: string): boolean => words.length < 4);
+    return short.length;
 }
 
 /**
@@ -58,7 +90,21 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    let toReturn: boolean;
+    if (colors.length === 0) {
+        toReturn = true;
+    } else {
+        const noRGB = colors.filter(
+            (colors: string): boolean =>
+                colors != "red" && colors != "green" && colors != "blue"
+        );
+        if (noRGB.length > 0) {
+            toReturn = false;
+        } else {
+            toReturn = true;
+        }
+    }
+    return toReturn;
 }
 
 /**
