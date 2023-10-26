@@ -27,7 +27,7 @@ function App(): JSX.Element {
                 <Row>
                     <Col>Column 1</Col>
                     <Col>
-                        Column 2, contains this image:
+                        Column 2, contains this image: <br />
                         <img src={bunny} alt="silly picture of bunny :)" />
                     </Col>
                 </Row>
