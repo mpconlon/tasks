@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import bunny from "./yippie.png";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
 function App(): JSX.Element {
@@ -27,10 +28,7 @@ function App(): JSX.Element {
                     <Col>Column 1</Col>
                     <Col>
                         Column 2, contains this image:
-                        <img
-                            src="./yippie.PNG"
-                            alt="A funny low quality image of bunny :)"
-                        />
+                        <img src={bunny} alt="silly picture of bunny :)" />
                     </Col>
                 </Row>
             </Container>
