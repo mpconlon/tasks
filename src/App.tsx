@@ -28,7 +28,7 @@ function App(): JSX.Element {
                     <Col>
                         Column 2, contains this image:
                         <img
-                            src="../yippie.jpg"
+                            src="./yippie.JPG"
                             alt="A funny low quality image of bunny :)"
                         />
                     </Col>
