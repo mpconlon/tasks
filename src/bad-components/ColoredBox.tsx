@@ -13,6 +13,7 @@ function ChangeColor({
     colorIndex,
     setColorIndex
 }: colorProperties): JSX.Element {
+    // const [colorIndex, setColorIndex] = useState<number>(DEFAULT_COLOR_INDEX);
     return (
         <Button onClick={() => setColorIndex((1 + colorIndex) % COLORS.length)}>
             Next Color
