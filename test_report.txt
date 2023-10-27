@@ -7,20 +7,18 @@ PASS src/arrays.test.ts
 PASS src/objects.test.ts
 PASS src/components/StartAttempt.test.tsx
 PASS src/components/TwoDice.test.tsx
-PASS src/HtmlCss.test.tsx
 PASS src/functions.test.ts
 PASS src/components/ChangeType.test.tsx
 PASS src/components/CycleHoliday.test.tsx
 PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
-PASS src/text.test.tsx
 PASS src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   99.54 |      100 |     100 |   99.53 |                   
- src               |   99.46 |      100 |     100 |   99.45 |                   
-  App.tsx          |     100 |      100 |     100 |     100 |                   
+All files          |   99.09 |      100 |   98.92 |   99.06 |                   
+ src               |   98.93 |      100 |   98.68 |    98.9 |                   
+  App.tsx          |      50 |      100 |      50 |      50 | 53                
   arrays.ts        |     100 |      100 |     100 |     100 |                   
   functions.ts     |     100 |      100 |     100 |     100 |                   
   nested.ts        |     100 |      100 |     100 |     100 |                   
@@ -37,8 +35,8 @@ All files          |   99.54 |      100 |     100 |   99.53 |
   question.ts      |       0 |        0 |       0 |       0 |                   
 -------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 13 passed, 13 total
-Tests:       101 passed, 101 total
+Test Suites: 11 passed, 11 total
+Tests:       93 passed, 93 total
 Snapshots:   0 total
-Time:        8.82 s
+Time:        10.6 s
 Ran all test suites.
