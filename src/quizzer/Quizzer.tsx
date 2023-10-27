@@ -1,8 +1,3 @@
-import React from "react";
-
-export function Quizzer(): JSX.Element {
-    return <h3>Quizzer</h3>;
-}
 import React, { useState } from "react";
 import { Quiz } from "./quiz";
 import { Question, QuestionType } from "./question";
