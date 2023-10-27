@@ -11,7 +11,7 @@ export const AddQuizModal = ({
     addQuiz: (title: string, body: string) => void;
 }) => {
     const [title, setTitle] = useState<string>("Example Quiz");
-    const [body, setBody] = useState<string>("");
+    const [body, setBody] = useState<string>("Example Description");
 
     const saveChanges = () => {
         addQuiz(title, body);
@@ -41,8 +41,8 @@ export const AddQuizModal = ({
                             rows={3}
                             value={body}
                             onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => setTitle(event.target.value)}
+                                e: React.ChangeEvent<HTMLInputElement>
+                            ) => setBody(e.target.value)}
                         ></Form.Control>
                     </Form.Group>
                 </Modal.Body>

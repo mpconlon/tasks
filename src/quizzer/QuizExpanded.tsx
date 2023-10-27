@@ -13,7 +13,7 @@ export const QuizExpanded = ({
     switchEdit
 }: {
     quiz: Quiz;
-    editQuiz: (qId: number, q: Quiz) => void;
+    editQuiz: (questionId: number, newQuiz: Quiz) => void;
     resetView: () => void;
     switchEdit: () => void;
 }) => {
@@ -59,9 +59,7 @@ export const QuizExpanded = ({
             ...quiz,
             questionList: quiz.questionList.map(
                 (q: Question): Question =>
-                    q.id === questionId
-                        ? { ...q, submission: sub, options: [...q.options] }
-                        : q
+                    q.id === questionId ? { ...q, submission: sub } : q
             )
         });
     };

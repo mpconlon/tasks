@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Question, QuestionType } from "./question";
-
+import { Form, Button } from "react-bootstrap";
+import { Question } from "./question";
 import "./QuestionEdit.css";
-import { Button, Form } from "react-bootstrap";
 
 export const QuestionEdit = ({
     index,
@@ -16,9 +14,9 @@ export const QuestionEdit = ({
     index: number;
     lastIndex: number;
     question: Question;
-    editQuestion: (id: number, q: Question) => void;
-    removeQuestion: (id: number) => void;
-    swapQuestion: (id1: number, id2: number) => void;
+    editQuestion: (questionId: number, newQuestion: Question) => void;
+    removeQuestion: (questionId: number) => void;
+    swapQuestion: (index1: number, index2: number) => void;
 }) => {
     const [a, b] = useState<number>(
         question.options.findIndex((s: string) => question.expected === s)
@@ -36,7 +34,6 @@ export const QuestionEdit = ({
         });
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const switchMulti = () => {
         b(0);
         editQuestion(question.id, {
@@ -64,18 +61,7 @@ export const QuestionEdit = ({
             expected: a === i ? e.target.value : question.expected
         });
     };
-    const handleSwitch = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        b(0);
-        editQuestion(question.id, {
-            ...question,
-            type:
-                e.target.value === "multiple_choice_question"
-                    ? "multiple_choice_question"
-                    : "short_answer_question",
-            expected: "Example Answer",
-            options: Array(1).fill("Example Answer")
-        });
-    };
+
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const idx = parseInt(e.target.value);
         b(idx);
@@ -132,7 +118,7 @@ export const QuestionEdit = ({
                                 <Form.Select
                                     className="type_dropdown"
                                     value={question.type}
-                                    onChange={handleSwitch}
+                                    onChange={switchMulti}
                                 >
                                     <option
                                         data-testid={
