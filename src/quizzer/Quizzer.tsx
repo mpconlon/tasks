@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Quiz } from "./quiz";
-//import { Question, QuestionType } from "../interfaces/question";
 import { QuizList } from "./QuizList";
 import { AddQuizModal } from "./AddQuizModal";
 import { Question, QuestionType } from "./question";
