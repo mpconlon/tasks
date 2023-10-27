@@ -12,8 +12,8 @@ export const QuizList = ({
     showModal
 }: {
     quizzes: Quiz[];
-    editQuiz: (qId: number, q: Quiz) => void;
-    deleteQuiz: (qId: number) => void;
+    editQuiz: (questionId: number, newQuiz: Quiz) => void;
+    deleteQuiz: (questionId: number) => void;
     showModal: () => void;
 }) => {
     const [displayId, setDisplayId] = useState<null | number>(null);
@@ -54,6 +54,7 @@ export const QuizList = ({
                         ></QuizView>
                     );
                 }
+                return null;
             })}
         </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
-import { Question } from "./question";
 import { Form, Button } from "react-bootstrap";
+import { Question } from "./question";
 
 import "./QuizQuestion.css";
 type ChangeEvent = React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>;
@@ -16,9 +16,9 @@ export const QuizQuestion = ({
     index: number;
     question: Question;
     submitted: boolean;
-    handleSubmit: (id: number) => void;
-    addPoints: (points: number) => void;
-    editQuestionSub: (qId: number, q: string) => void;
+    handleSubmit: (index: number) => void;
+    addPoints: (p: number) => void;
+    editQuestionSub: (questionId: number, sub: string) => void;
 }) => {
     const handleClick = (e: ChangeEvent) => {
         if (!submitted) {
@@ -61,7 +61,7 @@ export const QuizQuestion = ({
                             {question.options.map(
                                 (option: string, i: number) => (
                                     <Form.Check
-                                        type="radio"
+                                        type="checkbox"
                                         name={"questionChoice" + index}
                                         key={option + " | " + i}
                                         label={option}

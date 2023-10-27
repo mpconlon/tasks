@@ -14,8 +14,8 @@ export const QuizEdit = ({
     resetView
 }: {
     quiz: Quiz;
-    editQuiz: (id: number, quiz: Quiz) => void;
-    deleteQuiz: (id: number) => void;
+    editQuiz: (questionId: number, newQuiz: Quiz) => void;
+    deleteQuiz: (questionId: number) => void;
     switchEdit: () => void;
     resetView: () => void;
 }) => {
@@ -25,8 +25,8 @@ export const QuizEdit = ({
         setNewQuiz({
             ...newQuiz,
             questionList: newQuiz.questionList.map(
-                (q: Question): Question =>
-                    questionId === q.id ? newQuestion : q
+                (question: Question): Question =>
+                    question.id === questionId ? newQuestion : question
             )
         });
     };
@@ -35,7 +35,7 @@ export const QuizEdit = ({
         setNewQuiz({
             ...newQuiz,
             questionList: newQuiz.questionList.filter(
-                (q: Question): boolean => !(questionId === q.id)
+                (question: Question): boolean => question.id !== questionId
             )
         });
     };
@@ -51,7 +51,7 @@ export const QuizEdit = ({
                 (q: Question, idx: number): Question => {
                     if (idx === idx1) return newQuiz.questionList[idx2];
                     if (idx === idx2) return newQuiz.questionList[idx1];
-                    return newQuiz.questionList[idx];
+                    return q;
                 }
             )
         });
@@ -84,12 +84,11 @@ export const QuizEdit = ({
                             data-testid="Quiz Published"
                             checked={newQuiz.published}
                             onChange={(
-                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                 e: React.ChangeEvent<HTMLInputElement>
                             ) => {
                                 setNewQuiz({
                                     ...newQuiz,
-                                    published: !newQuiz.published
+                                    published: e.target.checked
                                 });
                             }}
                         ></Form.Check>

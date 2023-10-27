@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Quiz } from "./quiz";
-import { Question, QuestionType } from "./question";
+//import { Question, QuestionType } from "../interfaces/question";
 import { QuizList } from "./QuizList";
 import { AddQuizModal } from "./AddQuizModal";
+import { Question, QuestionType } from "./question";
 
 import "./Quizzer.css";
 import sample from "./quizzes.json";
@@ -31,16 +32,14 @@ export const Quizzer = () => {
     }
 
     function addQuiz(title: string, body: string) {
-        setQuizzes([
-            ...quizzes,
-            {
-                id: 0,
-                title: title,
-                body: body,
-                published: false,
-                questionList: []
-            }
-        ]);
+        const newQuiz: Quiz = {
+            title,
+            body,
+            id: quizzes.length + 1,
+            questionList: [],
+            published: false
+        };
+        setQuizzes([...quizzes, newQuiz]);
     }
 
     function deleteQuiz(qId: number) {
@@ -96,6 +95,20 @@ export const Quizzer = () => {
                         Users can clear out their existing answers for a quiz
                         (TESTED)
                     </li>
+                    <li>Users can publish or unpublish a question (TESTED)</li>
+                    <li>
+                        Users can filter the questions in a list so that only
+                        published questions are shown (TESTED)
+                    </li>
+                    <li>
+                        Users can edit the questions and fields of a quiz
+                        (TESTED)
+                    </li>
+                    <li>Users can add a new quiz question (TESTED)</li>
+                    <li>Users can delete an existing quiz question (TESTED)</li>
+                    <li>Users can reorder quiz questions (TESTED)</li>
+                    <li>Users can add a new quiz (TESTED)</li>
+                    <li>Users can delete an existing quiz (TESTED)</li>
                 </ul>
             </div>
         </div>
