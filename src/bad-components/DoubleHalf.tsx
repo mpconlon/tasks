@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+//import { dhValue, setDhValue } from "./DoubleHalfState";
 
 interface valueProperties {
     setDhValue: (newDhValue: number) => void;
@@ -22,6 +23,7 @@ export function DoubleHalf(): JSX.Element {
             <div>
                 The current value is: <span>{dhValue}</span>
             </div>
+
             <Doubler setDhValue={setDhValue} dhValue={dhValue}></Doubler>
             <Halver setDhValue={setDhValue} dhValue={dhValue}></Halver>
         </div>
